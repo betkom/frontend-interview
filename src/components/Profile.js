@@ -1,10 +1,11 @@
 import * as React from "react";
-import { useUserContext } from "../contexts/user";
+import { useUserContext, useSetUserContext } from "../contexts/user";
 
 /**
  * This should update the user context with the new values for email and name
  */
 const Profile = () => {
+  const setUserContext = useSetUserContext();
   const user = useUserContext();
 
   return (
@@ -13,18 +14,20 @@ const Profile = () => {
       <form
         onSubmit={e => {
           e.preventDefault();
+          console.log(user, 'user')
+          setUserContext({...user})
         }}
       >
         <input
           name="email"
-          value={user.email}
+          defaultValue={user.email}
           onChange={e => {
             user.email = e.target.value;
           }}
         />
         <input
           name="name"
-          value={user.name}
+          defaultValue={user.name}
           onChange={e => {
             user.name = e.target.value;
           }}
