@@ -47,8 +47,13 @@ You should not take more than 4 hours of time on this, even if you feel incomple
 Please, answer the following questions in this readme, underneath the question
 
 1. Name a newer feature of javascript that you believe is extra useful, and discuss how you have used it in this project, or how you would use it if needed.
+Optional Chaining, I would use it to make sure a value exists before performing any operation on it without having to check it's existence explicitly
+
 
 2. What are 3 things you think `React` does very poorly? What tools do this better, if any?
+- No defined structure on how to implement it. Angular is more structured
+- Component-Scoped styling, react does this using external libraries like styled-components. Vue has this in-built
+- Custom DOM manipulation, Vue allows you can scope  DOM manipulations
 
 ## Submissions
 
