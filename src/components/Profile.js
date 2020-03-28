@@ -14,7 +14,6 @@ const Profile = () => {
       <form
         onSubmit={e => {
           e.preventDefault();
-          console.log(user, 'user')
           setUserContext({...user})
         }}
       >

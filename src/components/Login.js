@@ -30,6 +30,8 @@ const Login = () => {
         name: "Test User",
         ...user
       });
+    } else if (!isValidEmail(user.email)) {
+      setError("email is invalid")
     } else {
       setError("invalid");
     }
