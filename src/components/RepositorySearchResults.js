@@ -1,24 +1,21 @@
 import * as React from "react";
-import { Route, Link, Switch, useRouteMatch } from "react-router-dom";
+import { Route, Link, useRouteMatch } from "react-router-dom";
 
 import Repository from "./Repository"
 import SearchResult from "./SearchResult"
 
 import styled from 'styled-components'
 
-import {getRepositoryRoute}  from '../constants/routes'
+ const Header = styled.div`
+  display: flex;
+  justify-content: space-around;
+`
+const HeaderContent = styled.span `
+  width: 300px;
+`
 
 const RepositorySearchResults = ({searchResults, match, children}) => {
-  const repositories = useRepositoriesContext
   let { path, url } = useRouteMatch();
-
-  const Header = styled.div`
-    display: flex;
-    justify-content: space-around;
-  `
-  const HeaderContent = styled.span `
-    width: 300px;
-  `
 
   return (
     <ul>
@@ -31,13 +28,13 @@ const RepositorySearchResults = ({searchResults, match, children}) => {
         </Header>
       {
         searchResults.map((searchResult) => (
-        <Link to={`${url}/${searchResult.id}`}>
+        <Link to={`${url}/${searchResult.id}`} key={searchResult.id}>
           <SearchResult key={searchResult.id} searchResult={searchResult} />
 
           <Route path={`${path}/:id`} render={() => <Repository repository={searchResult} />} />
         </Link>))
       }
-      {children}
+
     </ul>
   );
 };

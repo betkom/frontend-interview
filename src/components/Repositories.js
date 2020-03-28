@@ -14,7 +14,7 @@ import RepositorySearchResults from "./RepositorySearchResults"
  * https://developer.github.com/v3/search/#search-repositories
  */
 
-const Repositories = ({match}) => {
+const Repositories = () => {
   const [searchResults, setSearchResults] = React.useState([]);
   const [timeout, resetTimeout] = React.useState(0);
 
