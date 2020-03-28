@@ -20,7 +20,6 @@ const Repositories = ({match}) => {
 
 
   const fetchSearchResults = (searchText) => {
-    console.log('...fetching')
     fetch(`https://api.github.com/search/repositories?q={${searchText}}`)
     .then(res => res.json())
     .then((response) => {
